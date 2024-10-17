@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Happy Birthday, Son</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/samsunginternet/OneUI-Web/oui-css/oui.css">
+    <style>
+      /* Custom styles for the dialog box image */
+      .dialog-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto 15px;
+      }
+      /* Ensure the paragraph text is visible against a dark background */
+      #myDialog p {
+        color: #ffffff; /* White text */
+        background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent black background */
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div class="oui-viewing">
+        <div class="oui-bubble">
+
+          <img src="warrick11.JPG" alt="Hero image" class="oui-image-cover" alt="">
+
+          <p class="oui-overlay-bubble-item">Happy Birthday 2024, Son</p>
+           
+          <label class="oui-label oui-container-checkbox" for="checkbox_oui">
+           Thanks for being there with us!        
+           <input id="checkbox_oui" type="checkbox" class="oui-input-checkbox" checked>
+           <span class="oui-input-checkbox-checkmark"></span>
+          </label>
+          <label class="oui-label oui-container-checkbox" for="checkbox_oui">
+           Thanks for the music!        
+              <input id="checkbox_oui" type="checkbox" class="oui-input-checkbox" checked>
+              <span class="oui-input-checkbox-checkmark"></span>
+          </label>
+          <label class="oui-label oui-container-checkbox" for="checkbox_oui">
+           Thanks for being our son!        
+              <input id="checkbox_oui" type="checkbox" class="oui-input-checkbox" checked>
+              <span class="oui-input-checkbox-checkmark"></span>
+          </label>          
+
+          <!-- Toggle Switch -->
+          <label class="oui-label oui-container-toggle" for="toggle_oui">
+            Toggle Switch to find out more
+            <input id="toggle_oui" type="checkbox" class="toggle">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+      <div class="oui-interaction">
+        <!-- Dialog Mask and Dialog Box -->
+        <div id="dialogMask" class="oui-dialog-mask" style="display: none;"></div>
+        <dialog id="myDialog" class="oui-dialog">
+          <img src="warrick11.JPG" alt="Dialog Image" class="dialog-image">
+          <p>Again, we want to say we love you, son!</p>
+          <button id="closeDialog" class="oui-button">Close</button>
+        </dialog>
+      </div>
+    </main>
+
+    <script>
+      // Get the elements
+      const toggleSwitch = document.getElementById('toggle_oui');
+      const dialog = document.getElementById('myDialog');
+      const dialogMask = document.getElementById('dialogMask');
+      const closeDialogButton = document.getElementById('closeDialog');
+
+      // Function to show the dialog and mask
+      function showDialog() {
+        dialogMask.style.display = 'block'; // Show the mask
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        dialog.showModal(); // Show the dialog
+      }
+
+      // Function to close the dialog and mask, and turn off the toggle switch
+      function closeDialog() {
+        dialogMask.style.display = 'none'; // Hide the mask
+        document.body.style.overflow = ''; // Restore scrolling
+        dialog.close(); // Close the dialog
+        toggleSwitch.checked = false; // Turn off the toggle switch
+      }
+
+      // Add an event listener to the toggle switch
+      toggleSwitch.addEventListener('change', function() {
+        if (toggleSwitch.checked) {
+          showDialog(); // Show the dialog and mask when the switch is on
+        } else {
+          closeDialog(); // Close the dialog and mask when the switch is off
+        }
+      });
+
+      // Add an event listener to close the dialog when the button is clicked
+      closeDialogButton.addEventListener('click', function() {
+        closeDialog();
+      });
+    </script>
+  </body>
+</html>
